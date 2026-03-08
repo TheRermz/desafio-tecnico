@@ -9,7 +9,7 @@ const dbConfig: TypeOrmModuleOptions = {
   port: 5432,
   username: 'postgres',
   password: 'postgres',
-  database: 'order',
+  database: 'orders',
   entities: [__dirname + '/**/*.entity{.ts,.js}'],
   synchronize: true,
 };
