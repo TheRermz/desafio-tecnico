@@ -6,7 +6,7 @@ import {
   PrimaryColumn,
   BeforeInsert,
 } from 'typeorm';
-import { Item } from './item.entity';
+import { Items } from './items.entity';
 import { v4 as uuidv4 } from 'uuid';
 
 @Entity('order')
@@ -18,10 +18,10 @@ export class Order {
   value: number;
 
   @CreateDateColumn()
-  creationDate: Date;
+  createdAt: Date;
 
-  @OneToMany(() => Item, (item) => item.order)
-  items: Item[];
+  @OneToMany(() => Items, (item) => item.orderId)
+  items: Items[];
 
   @BeforeInsert()
   generateOrderId() {
