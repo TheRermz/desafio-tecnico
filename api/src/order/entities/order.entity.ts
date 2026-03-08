@@ -29,6 +29,6 @@ export class Order {
   @BeforeInsert()
   generateOrderId() {
     const uuid = uuidv4().replace(/-/g, '').substring(0, 8);
-    this.orderId = `v${uuid}-vdb-01`;
+    this.orderId = `v${uuid}vdb`;
   }
 }

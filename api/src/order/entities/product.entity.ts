@@ -28,6 +28,6 @@ export class Product {
   @BeforeInsert()
   generateProductId() {
     const uuid = uuidv4().replace(/-/g, '').substring(0, 8);
-    this.productId = `p${uuid}-vdb-01`;
+    this.productId = `p${uuid}vdb`;
   }
 }
