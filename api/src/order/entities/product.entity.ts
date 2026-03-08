@@ -19,6 +19,9 @@ export class Product {
   @Column({ type: 'decimal', precision: 10, scale: 2 })
   price: number;
 
+  @Column({ default: true })
+  isActive: boolean;
+
   @OneToMany(() => Items, (item) => item.product)
   items: Items[];
 

@@ -20,6 +20,9 @@ export class Order {
   @CreateDateColumn()
   createdAt: Date;
 
+  @Column({ default: true })
+  isActive: boolean;
+
   @OneToMany(() => Items, (item) => item.order)
   items: Items[];
 
