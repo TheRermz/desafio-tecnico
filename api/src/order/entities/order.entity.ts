@@ -20,7 +20,7 @@ export class Order {
   @CreateDateColumn()
   createdAt: Date;
 
-  @OneToMany(() => Items, (item) => item.orderId)
+  @OneToMany(() => Items, (item) => item.order)
   items: Items[];
 
   @BeforeInsert()
