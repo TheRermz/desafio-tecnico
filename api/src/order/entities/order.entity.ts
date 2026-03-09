@@ -23,7 +23,7 @@ export class Order {
   @Column({ default: true })
   isActive: boolean;
 
-  @OneToMany(() => Items, (item) => item.order)
+  @OneToMany(() => Items, (item) => item.order, { cascade: true })
   items: Items[];
 
   @BeforeInsert()
