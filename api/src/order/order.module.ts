@@ -9,10 +9,17 @@ import { OrderRepository } from './repositories/order.repository';
 import { ProductRepository } from './repositories/product.repository';
 import { ProductService } from './services/product.service';
 import { ProductController } from './controllers/product.controller';
+import { OrderMapperService } from './services/orderMapper.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Order, Items, Product])],
   controllers: [OrderController, ProductController],
-  providers: [OrderService, ProductService, OrderRepository, ProductRepository],
+  providers: [
+    OrderService,
+    ProductService,
+    OrderMapperService,
+    OrderRepository,
+    ProductRepository,
+  ],
 })
 export class OrderModule { }
