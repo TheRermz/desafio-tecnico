@@ -30,12 +30,13 @@ export class ProductService {
   }
 
   async update(productId: string, updateProductDtoPt: UpdateProductDtoPt) {
+    const mapped = this.productMapper.ptToEn(updateProductDtoPt);
     const product = await this.productRepository.findById(productId);
 
     if (!product)
       throw new NotFoundException(`Produto ${productId} não encontrado!`);
 
-    Object.assign(product, updateProductDtoPt);
+    Object.assign(product, mapped);
     return this.productRepository.save(product);
   }
 
