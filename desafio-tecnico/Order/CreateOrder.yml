@@ -1,0 +1,24 @@
+info:
+  name: CreateOrder
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{url}}/order/"
+  body:
+    type: json
+    data: |-
+      {
+        "items":[ {
+          "productId": "pc7b061fcvdb",
+          "quantity": 2}
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

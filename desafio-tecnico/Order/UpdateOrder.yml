@@ -1,0 +1,26 @@
+info:
+  name: UpdateOrder
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{url}}/order/vf99735e3vdb"
+  body:
+    type: json
+    data: |-
+      {
+        "items": [
+          {
+            "productId": "pc7b061fcvdb",
+            "quantity": 2
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
