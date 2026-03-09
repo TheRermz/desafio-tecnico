@@ -1,7 +1,7 @@
 import { IsNotEmpty } from 'class-validator';
-import { CreateItemsDto } from './create-items.dto';
+import { CreateItemsDtoPt } from '../items/create-items-pt.dto';
 
-export class UpdateOrderDto {
+export class UpdateOrderDtoPt {
   @IsNotEmpty({ message: 'Os items do pedido não podem estar vazio.' })
-  items: CreateItemsDto[];
+  items: CreateItemsDtoPt[];
 }

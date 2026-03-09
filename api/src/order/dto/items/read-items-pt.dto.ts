@@ -1,6 +1,6 @@
-export class ReadItemsDto {
-  orderId: string;
-  productId: string;
-  quantity: number;
-  price: number;
+export class ReadItemsDtoPt {
+  numeroPedido: string;
+  idItem: string;
+  quantidadeItem: number;
+  valorItem: number;
 }

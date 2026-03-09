@@ -1,14 +1,19 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { ProductRepository } from '../repositories/product.repository';
-import { CreateProductDto } from '../dto/create-product.dto';
-import { UpdateProductDto } from '../dto/update-product.dto';
+import { CreateProductDtoPt } from '../dto/product/create-product-pt.dto';
+import { UpdateProductDtoPt } from '../dto/product/update-product-pt.dto';
+import { ProductMapperService } from './productMapper.service';
 
 @Injectable()
 export class ProductService {
-  constructor(private productRepository: ProductRepository) { }
+  constructor(
+    private productRepository: ProductRepository,
+    private productMapper: ProductMapperService,
+  ) { }
 
-  async create(createProductDto: CreateProductDto) {
-    const product = this.productRepository.create(createProductDto);
+  async create(createProductDtoPt: CreateProductDtoPt) {
+    const mapped = this.productMapper.ptToEn(createProductDtoPt);
+    const product = this.productRepository.create(mapped);
     return this.productRepository.save(product);
   }
 
@@ -24,13 +29,13 @@ export class ProductService {
     return this.productRepository.findById(productId);
   }
 
-  async update(productId: string, updateProductDto: UpdateProductDto) {
+  async update(productId: string, updateProductDtoPt: UpdateProductDtoPt) {
     const product = await this.productRepository.findById(productId);
 
     if (!product)
       throw new NotFoundException(`Produto ${productId} não encontrado!`);
 
-    Object.assign(product, updateProductDto);
+    Object.assign(product, updateProductDtoPt);
     return this.productRepository.save(product);
   }
 

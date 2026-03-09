@@ -1,9 +1,9 @@
 import { IsNotEmpty, IsNumber, IsPositive, IsString } from 'class-validator';
 
-export class UpdateProductDto {
+export class UpdateProductDtoPt {
   @IsString({ message: 'O Nome do produto deve ser uma string' })
   @IsNotEmpty({ message: 'O nome do produto deve ser preenchido.' })
-  productName: string;
+  nomeProduto: string;
 
   @IsNumber(
     { maxDecimalPlaces: 2 },
@@ -11,5 +11,5 @@ export class UpdateProductDto {
   )
   @IsPositive({ message: 'O valor do produto deve ser posivito.' })
   @IsNotEmpty({ message: 'O valor deve ser preenchido' })
-  price: number;
+  valorItem: number;
 }

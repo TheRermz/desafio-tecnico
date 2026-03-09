@@ -3,9 +3,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { OrderRepository } from '../repositories/order.repository';
 import { Items } from '../entities/items.entity';
-import { CreateOrderDto } from '../dto/create-order.dto';
-import { UpdateOrderDto } from '../dto/update-order.dto';
 import { ProductRepository } from '../repositories/product.repository';
+import { CreateOrderDtoPt } from '../dto/order/create-order-pt.dto';
+import { UpdateOrderDtoPt } from '../dto/order/update-order-pt.dto';
 
 @Injectable()
 export class OrderService {
@@ -16,25 +16,25 @@ export class OrderService {
     private itemsRepository: Repository<Items>,
   ) { }
 
-  async create(createOrderDto: CreateOrderDto) {
+  async create(createOrderDtoPt: CreateOrderDtoPt) {
     let value = 0;
 
     const items: Items[] = [];
 
-    for (const itemDto of createOrderDto.items) {
-      const product = await this.productRepository.findById(itemDto.productId);
+    for (const itemDto of createOrderDtoPt.items) {
+      const product = await this.productRepository.findById(itemDto.idItem);
 
       if (!product)
         throw new NotFoundException(
-          `Produto ${itemDto.productId} não encontrado!`,
+          `Produto ${itemDto.idItem} não encontrado!`,
         );
 
-      const price = Number(product.price) * itemDto.quantity;
+      const price = Number(product.price) * itemDto.quantidadeItem;
       value += price;
 
       const item = this.itemsRepository.create({
-        productId: itemDto.productId,
-        quantity: itemDto.quantity,
+        productId: itemDto.idItem,
+        quantity: itemDto.quantidadeItem,
         price,
       });
       items.push(item);
@@ -56,7 +56,7 @@ export class OrderService {
     return this.orderRepository.findById(orderId);
   }
 
-  async update(orderId: string, updateOrderDto: UpdateOrderDto) {
+  async update(orderId: string, updateOrderDtoPt: UpdateOrderDtoPt) {
     const order = await this.orderRepository.findById(orderId);
 
     if (!order)
@@ -66,21 +66,21 @@ export class OrderService {
 
     const items: Items[] = [];
 
-    for (const itemDto of updateOrderDto.items) {
-      const product = await this.productRepository.findById(itemDto.productId);
+    for (const itemDto of updateOrderDtoPt.items) {
+      const product = await this.productRepository.findById(itemDto.idItem);
       if (!product)
         throw new NotFoundException(
-          `Produto ${itemDto.productId} não encontrado!`,
+          `Produto ${itemDto.idItem} não encontrado!`,
         );
 
-      const price = Number(product.price) * itemDto.quantity;
+      const price = Number(product.price) * itemDto.quantidadeItem;
 
       value += price;
 
       const item = this.itemsRepository.create({
         orderId,
-        productId: itemDto.productId,
-        quantity: itemDto.quantity,
+        productId: itemDto.idItem,
+        quantity: itemDto.quantidadeItem,
         price,
       });
       items.push(item);

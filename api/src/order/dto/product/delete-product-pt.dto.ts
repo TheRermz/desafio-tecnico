@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator';
 
-export class DeleteProductDto {
+export class DeleteProductDtoPt {
   @IsNotEmpty({ message: 'O campo não pode estar vazio.' })
-  isActive: boolean;
+  estaAtivo: boolean;
 }

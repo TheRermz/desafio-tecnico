@@ -1,6 +1,6 @@
-export class ReadProductDto {
-  productId: string;
-  productName: string;
-  price: number;
-  isActive: boolean;
+export class ReadProductDtoPt {
+  idItem: string;
+  nomeProduto: string;
+  valorItem: number;
+  estaAtivo: boolean;
 }

@@ -8,6 +8,7 @@ export class OrderMapperService {
       orderId: orderPt.numeroPedido,
       value: orderPt.valorTotal,
       createdAt: orderPt.dataCriacao,
+      isActive: orderPt.estaAtivo,
       items: orderPt.items.map((item) => ({
         productId: item.idItem,
         quantity: item.quantidadeItem,

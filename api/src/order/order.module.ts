@@ -10,6 +10,7 @@ import { ProductRepository } from './repositories/product.repository';
 import { ProductService } from './services/product.service';
 import { ProductController } from './controllers/product.controller';
 import { OrderMapperService } from './services/orderMapper.service';
+import { ProductMapperService } from './services/productMapper.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Order, Items, Product])],
@@ -18,6 +19,7 @@ import { OrderMapperService } from './services/orderMapper.service';
     OrderService,
     ProductService,
     OrderMapperService,
+    ProductMapperService,
     OrderRepository,
     ProductRepository,
   ],

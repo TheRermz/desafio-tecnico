@@ -1,5 +1,3 @@
-import { Items } from '../entities/items.entity';
-
 export interface OrderInputPt {
   numeroPedido: string;
   valorTotal: number;
@@ -17,5 +15,9 @@ export interface OrderInputEn {
   value: number;
   createdAt: Date;
   isActive: boolean;
-  items: Array<Items>;
+  items: Array<{
+    productId: string;
+    quantity: number;
+    price: number;
+  }>;
 }

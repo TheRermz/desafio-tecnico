@@ -1,8 +1,8 @@
-import { ReadItemsDto } from './read-items.dto';
+import { ReadItemsDtoPt } from '../items/read-items-pt.dto';
 
-export class ReadOrderDto {
-  orderId: string;
-  value: number;
-  createdAt: Date;
-  items: ReadItemsDto[];
+export class ReadOrderDtoPt {
+  numeroPedido: string;
+  valorTotal: number;
+  dataCriacao: Date;
+  items: ReadItemsDtoPt[];
 }

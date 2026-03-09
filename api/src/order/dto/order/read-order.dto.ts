@@ -1,4 +1,4 @@
-import { ReadItemsDto } from './read-items.dto';
+import { ReadItemsDto } from '../items/read-items.dto';
 
 export class ReadOrderDto {
   orderId: string;
