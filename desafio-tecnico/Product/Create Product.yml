@@ -10,8 +10,8 @@ http:
     type: json
     data: |-
       {
-        "nomeProduto": "Salgado",
-        "valorItem": 2.22
+        "nomeProduto": "Bolos",
+        "valorItem": 32.54
       }
   auth: inherit
 

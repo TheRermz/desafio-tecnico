@@ -5,15 +5,15 @@ info:
 
 http:
   method: PATCH
-  url: "{{url}}/order/vf99735e3vdb"
+  url: "{{url}}/order/va01f5689vdb"
   body:
     type: json
     data: |-
       {
         "items": [
           {
-            "productId": "pc7b061fcvdb",
-            "quantity": 2
+            "idItem": "p536c2b76vdb",
+            "quantidadeItem": "jorge"
           }
         ]
       }

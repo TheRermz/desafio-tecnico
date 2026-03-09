@@ -11,8 +11,9 @@ http:
     data: |-
       {
         "items":[ {
-          "productId": "pc7b061fcvdb",
-          "quantity": 2}
+          "idItem": "pe908e628vdb",
+          "quantidadeItem": 1
+        }
         ]
       }
   auth: inherit

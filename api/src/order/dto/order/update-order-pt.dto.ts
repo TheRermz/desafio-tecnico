@@ -1,7 +1,10 @@
-import { IsNotEmpty } from 'class-validator';
-import { CreateItemsDtoPt } from '../items/create-items-pt.dto';
+import { IsNotEmpty, ValidateNested } from 'class-validator';
+import { Type } from 'class-transformer';
+import { UpdateItemsDtoPt } from '../items/update-items-pt.dto';
 
 export class UpdateOrderDtoPt {
   @IsNotEmpty({ message: 'Os items do pedido não podem estar vazio.' })
-  items: CreateItemsDtoPt[];
+  @ValidateNested({ each: true })
+  @Type(() => UpdateItemsDtoPt)
+  items: UpdateItemsDtoPt[];
 }
