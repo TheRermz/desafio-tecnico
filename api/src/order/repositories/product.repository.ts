@@ -8,6 +8,10 @@ export class ProductRepository extends Repository<Product> {
     super(Product, dataSource.createEntityManager());
   }
 
+  async findAll(): Promise<Product[]> {
+    return this.find();
+  }
+
   async findAllActive(): Promise<Product[]> {
     return this.find({
       where: { isActive: true },

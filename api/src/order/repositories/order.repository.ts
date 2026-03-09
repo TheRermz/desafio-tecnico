@@ -8,6 +8,12 @@ export class OrderRepository extends Repository<Order> {
     super(Order, dataSource.createEntityManager());
   }
 
+  async findAll(): Promise<Order[]> {
+    return this.find({
+      relations: ['items'],
+    });
+  }
+
   async findAllActive(): Promise<Order[]> {
     return this.find({
       where: { isActive: true },
