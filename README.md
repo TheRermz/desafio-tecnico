@@ -1,7 +1,5 @@
 # Order Management API
 
-API RESTful para gerenciamento de pedidos e produtos, desenvolvida como parte do desafio técnico da Jitterbit.
-
 ## Índice
 
 - [Visão Geral](#visão-geral)
